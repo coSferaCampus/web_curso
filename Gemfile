@@ -11,7 +11,7 @@ gem 'carrierwave-mongoid'
 
 group :test do
   gem 'rspec-rails'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'database_cleaner', '1.3.0'
+  gem 'factory_girl_rails', group: :development
   gem 'mongoid-rspec', '~> 2.0.0'
 end
