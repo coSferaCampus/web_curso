@@ -2,6 +2,9 @@ class Theme
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  acts_as_api
+  include ThemeTemplates
+
   TITLE_REGEXP = /## (.+)$/
   SUBTITLE_REGEXP = /### (.+)$/
 
@@ -19,7 +22,7 @@ class Theme
   validates :subject, presence: true
 
   after_create do
-    set content: file.read
+    set content: File.read(file.path)
   end
 
   after_save do
