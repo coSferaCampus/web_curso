@@ -27,7 +27,7 @@ RSpec.describe Theme, :type => :model do
 
     context "after create" do
       it "should assign #content" do
-        expect(theme.content).to eql theme.file.read
+        expect(theme.content).to eql File.read theme.file.path
       end
     end
 

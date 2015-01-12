@@ -3,7 +3,7 @@ shared_examples_for "a create action for a REST controller" do |attributes, no_c
     let( :root ){ defined?( fixed_root ) ? fixed_root : @model.to_s.tableize.singularize }
 
     before do
-      post :create, {:"#{root}" => @parameters}.merge(defined?(@create_params) ? @create_params : {})
+      post :create, {:"#{root}" => @parameters}.merge(@create_params || {})
     end
 
     after do

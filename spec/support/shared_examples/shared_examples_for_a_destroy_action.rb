@@ -1,7 +1,8 @@
 shared_examples_for "a destroy action for a REST controller" do
   context "when resource do exist" do
     before do
-      @destroy_resource = FactoryGirl.create( @model.to_s.underscore.to_sym, @parameters )
+      @destroy_resource =
+        FactoryGirl.create(@model.to_s.underscore.to_sym, @parameters.merge(@destroy_params || {}))
       delete :destroy, id: @destroy_resource.id
     end
 

@@ -16,9 +16,25 @@ class ThemesController < ApplicationController
     respond_with @theme, api_template: @template
   end
 
+  def update
+    @theme = Theme.find(params[:id])
+    @theme.update_attributes(theme_update_params)
+    respond_with @theme, api_template: @template
+  end
+
+  def destroy
+    @theme = Theme.find(params[:id])
+    @theme.destroy
+    respond_with @theme, api_template: @template
+  end
+
   private
 
   def theme_create_params
     params.require(:theme).permit(:number, :file)
+  end
+
+  def theme_update_params
+    params.require(:theme).permit(:content, :title, :number)
   end
 end

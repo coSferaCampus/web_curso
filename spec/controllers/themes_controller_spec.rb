@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe ThemesController, type: :controller do
   set_content_type 'application/json'
 
-  #options = [:show, :index, :create, :update, :destroy]
-  options = [:create]
+  options = [:show, :index, :create, :update, :destroy]
   json_attributes = [:number]
   no_check_values = [:file]
 
@@ -18,6 +17,7 @@ RSpec.describe ThemesController, type: :controller do
     @index_params = {subject_id: sub.id.to_s}
     @first_page_resources = sub.themes.asc(:number)
     @update_params = FactoryGirl.attributes_for(:theme_updated)
+    @destroy_params = {subject_id: sub.id.to_s}
   end
 
   it_behaves_like "a REST controller", options, json_attributes, no_check_values
