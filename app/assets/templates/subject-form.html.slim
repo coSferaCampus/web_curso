@@ -1,0 +1,9 @@
+form
+  .row
+    .form-group.col-md-6 ng-class="{ 'has-error': reportErrors.name }"
+      label for=""  Nombre de la asignatura
+      input.form-control placeholder="Nombre de la asignatura" type="text" ng-model="subject.name"
+      | {{reportErrors.name}}
+  .row
+    .col-md-6
+      button.btn.btn-custom.pull-right type="button" ng-click="addSubject()" Aceptar

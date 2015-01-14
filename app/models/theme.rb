@@ -46,4 +46,8 @@ class Theme
       self.subtitles << $1
     end
   end
+
+  def html
+    Kramdown::Document.new(self.content).to_html
+  end
 end

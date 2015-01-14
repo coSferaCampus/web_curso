@@ -1,0 +1,51 @@
+/![if lt IE 7]
+  | <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p
+/! Add your site or application content here
+.container-fluid
+  header.header.row
+    .col-md-10.col-sm-9
+      h3 Curso Desarrollo Web
+    .col-md-2.col-sm-3.hidden-xs
+      .dropdown
+        a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+          | Fulanito de Copas
+          span.caret
+        ul.dropdown-menu role="menu"
+          li
+            a ui-sref="root.addSubject"  Añadir tema
+          li
+            a ui-sref="home.userconfig"  Cambiar contraseña
+          li.divider
+          li
+            a href="#"  Cerrar sesión
+          li
+    .col-md-7
+      button.btn.btn-smartphone-menu.visible-xs.pull-right data-target="#smartphone-menu" data-toggle="collapse" type="button"
+        i.glyphicon.glyphicon-align-justify
+  #smartphone-menu.collapse
+    ul.nav.visible-xs
+      li
+        a ng-href="#/main"  Home
+      li
+        a ui-sref="home.tema01"  Tema 01
+      li
+        a ui-sref="home.tema02"  Tema 02
+      li
+        a aria-controls="tema03-xs" aria-expanded="false" data-toggle="collapse" href="#tema03-xs"  Tema03
+        ul#tema03-xs.collapse
+          li
+            a href="#"  Tema03 - Parte01
+          li
+            a href="#"  Tema03 - Parte02
+          li
+            a href="#"  Tema03 - Parte03
+      li
+        a ui-sref="root.addSubject"  Añadir tema
+      li
+        a ui-sref="home.userconfig"  Cambiar contraseña
+      li
+        a href="#"  Cerrar sesión
+      li
+  .row
+    subjects-list
+    section.col-sm-9 ui-view=""
