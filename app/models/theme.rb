@@ -14,7 +14,7 @@ class Theme
 
   belongs_to :subject
 
-  validates :number, presence: true, uniqueness: true
+  validates :number, presence: true, uniqueness: { :scope => :subject }
   validates :file, presence: true
   validates :subject, presence: true
 

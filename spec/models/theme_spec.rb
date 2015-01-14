@@ -19,7 +19,7 @@ RSpec.describe Theme, :type => :model do
     it{ should validate_presence_of(:file) }
     it{ should validate_presence_of(:subject) }
 
-    it{ should validate_uniqueness_of(:number) }
+    it{ should validate_uniqueness_of(:number).scoped_to(:subject) }
   end
 
   context "Hooks" do
