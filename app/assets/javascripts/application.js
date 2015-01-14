@@ -1,5 +1,5 @@
 //= require jquery
-//= require bootstrap-sass-official
+//= require bootstrap-sprockets
 //= require angular
 //= require angular-resource
 //= require angular-sanitize

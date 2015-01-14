@@ -16,12 +16,13 @@ gem 'kramdown'
 gem 'rouge'
 # gem 'unicorn'
 #rails assets
+gem 'non-stupid-digest-assets'
 gem 'rails-assets-angular'
 gem 'rails-assets-angular-resource'
 gem 'rails-assets-angular-sanitize'
 gem 'rails-assets-angular-ui-router'
 gem 'rails-assets-ng-file-upload'
-gem 'rails-assets-bootstrap-sass-official'
+gem 'bootstrap-sass'
 
 group :test do
   gem 'rspec-rails'

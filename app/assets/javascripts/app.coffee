@@ -79,7 +79,7 @@ App.controller 'ThemesController', [
           fileFormDataName: 'theme[file]'
           formDataAppender: (fd, key, val) ->
             if key isnt 'subject_id'
-              fd.append "theme[#{key}]", val
+              fd.append "theme[#{key}]", val || ''
             else
               fd.append key, val
         )

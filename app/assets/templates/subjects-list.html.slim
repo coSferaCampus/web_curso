@@ -1,9 +1,9 @@
 nav.col-sm-3.sidebar
   ul.nav.nav-pills.nav-stacked.hidden-xs
     li ng-repeat="subject in subjects"
-      a.subject href="\#{{subject.name_parameterize}}" aria-expanded="false" aria-controls="{{subject.name_parameterize}}" data-toggle="collapse"
+      a.subject href="\#{{subject.name_parameterize}}" aria-expanded="false" aria-controls="{{subject.name_parameterize}}" data-toggle="collapse" ng-click="$event.preventDefault()"
         | {{subject.name}}
       ul.collapse id="{{subject.name_parameterize}}"
-        li ng-repeat="theme in subject.themes"
+        li ng-repeat="theme in subject.themes | orderBy:'number'"
           a ui-sref="root.theme({theme_id: theme.id})"
-            | {{theme.title}}
+            | {{theme.number}} - {{theme.title}}
