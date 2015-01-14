@@ -4,7 +4,7 @@ class Subject
 
   field :name, type: String
 
-  has_many :themes
+  has_many :themes, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 end

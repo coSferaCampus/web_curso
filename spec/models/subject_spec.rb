@@ -6,7 +6,7 @@ RSpec.describe Subject, :type => :model do
   end
 
   context "Relations" do
-    it{ should have_many(:themes) }
+    it{ should have_many(:themes).with_dependent(:destroy) }
   end
 
   context "Validations" do
