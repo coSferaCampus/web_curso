@@ -21,6 +21,14 @@ a {
   color: $base-blue;
 }
 
+.nav > .active > a, .nav > .active:hover > a, .nav > .active:focus > a{
+  background-color: $grey-dark !important;
+}
+
+.nav > li:hover > a, .nav > li:focus > a {
+  background-color: lighten($grey-med, 15%) !important;
+}
+
 button {
   font-family: $title-font-family;
 }
@@ -42,10 +50,11 @@ header {
     color: $white;
   }
   h3 {
-    margin: 5px 0 0;
+    margin: 10px 0 0;
   }
   a {
     margin-top: 15px;
+    display: inline-block;
   }
 }
 
@@ -55,6 +64,21 @@ header {
   top: -55px;
   background: $grey-dark;
 }
+
+.smartphone-menu {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background-color: $grey-dark;
+  a {
+    color: $white;
+  }
+  li:hover a, li:active a, li:focus a {
+    background-color: black;
+  }
+}
+
+
 //FORMS
 label {
   font-family: $title-font-family;
@@ -99,4 +123,33 @@ label {
   &:hover, &:active, &:focus {
     background: darken($grey-dark, 5%);
   }
+}
+
+//TITULOS
+.title {
+  font-size: $h2-size;
+  color: $grey-dark;
+  font-family: $title-font-family;
+  border-bottom: 1px dotted $grey-med;
+  padding-bottom: .5rem;
+  margin-bottom: .75rem;
+}
+
+//TABLAS
+.table {
+  margin-top: 1rem;
+  a {
+    display: inline-block;
+    margin-left: 1rem;
+    float: right;
+  }
+  thead {
+    background-color: $grey-dark;
+    color: $white;
+    font-family: $title-font-family;
+    tr th {
+      border: none;
+    }
+  }
+
 }

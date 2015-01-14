@@ -1,0 +1,14 @@
+.row
+  .col-md-6
+    table.table
+      thead
+        tr
+          th Tema
+          th &nbsp;
+      tbody
+        tr ng-repeat="theme in subject.themes"
+          td
+            | {{theme.title}}
+          td
+            a
+              span.glyphicon.glyphicon-remove aria-hidden="true"

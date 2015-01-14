@@ -1,15 +1,11 @@
+h2
+  | {{subject.name}} - Crear temas
 form
   .row
     .form-group.col-md-2.col-xs-5 ng-class="{ 'has-error': reportErrors.number }"
       label for=""  Número tema
       input.form-control type="number" ng-model="theme.number"
       | {{reportErrors.number}}
-  .row
-    .form-group.col-md-6 ng-class="{ 'has-error': reportErrors.subject_id }"
-      label for=""  Asignatura
-      select.form-control ng-model="theme.subject_id" ng-options="subject.id as subject.name for subject in subjects"
-        option value="" Selecciona una asignatura
-      | {{reportErrors.subject_id}}
   div
     .form-group ng-class="{ 'has-error': reportErrors.file }"
       label for="exampleInputFile"  Seleccionar tema

@@ -1,0 +1,16 @@
+.row
+  .col-md-6
+    table.table
+      thead
+        tr
+          th Asignatura
+          th &nbsp;
+      tbody
+        tr ng-repeat="subject in subjects"
+          td
+            | {{subject.name}}
+          td
+            a ui-sref="root.addTheme({subject_id:subject.id})"
+              span.glyphicon.glyphicon-pencil aria-hidden="true"
+            a ng-click="removeSubject(subject)"
+              span.glyphicon.glyphicon-remove aria-hidden="true"

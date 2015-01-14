@@ -8,6 +8,9 @@ module ThemeTemplates
       t.add :number
       t.add :title
       t.add :subtitles
+    end
+
+    api_accessible :html, :extend => :base do |t|
       t.add :html
     end
   end
