@@ -7,4 +7,5 @@
 //= require ng-file-upload
 //= require angular-rails-templates
 //= require_tree .
+//= require_tree ./controllers
 //= require_tree ../templates
