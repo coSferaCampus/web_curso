@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+ruby '2.1.5'
 gem 'rails', '4.2.0'
 gem 'jquery-rails'
 gem 'mongoid'
@@ -23,6 +24,8 @@ gem 'rails-assets-angular-sanitize'
 gem 'rails-assets-angular-ui-router'
 gem 'rails-assets-ng-file-upload'
 gem 'bootstrap-sass'
+
+gem 'rails_12factor', group: :production
 
 group :development do
   gem 'mailcatcher'
