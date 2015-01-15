@@ -36,6 +36,7 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
   config.include Mongoid::Matchers, type: :model
+  config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, type: :controller
 
   # Configure DatabaseCleaner

@@ -24,6 +24,11 @@ gem 'rails-assets-angular-ui-router'
 gem 'rails-assets-ng-file-upload'
 gem 'bootstrap-sass'
 
+group :development do
+  gem 'mailcatcher'
+  gem 'html2slim'
+end
+
 group :test do
   gem 'rspec-rails'
   gem 'database_cleaner', '1.3.0'

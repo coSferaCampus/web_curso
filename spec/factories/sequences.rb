@@ -6,4 +6,8 @@ FactoryGirl.define do
   sequence :name do |n|
     "Subject #{n}"
   end
+
+  sequence :email do |n|
+    "user#{n}@email.com"
+  end
 end
