@@ -14,39 +14,15 @@
         ul.dropdown-menu role="menu"
           li
             a ui-sref="root.addSubject"  Añadir tema
-          li
-            a ui-sref="home.userconfig"  Cambiar contraseña
           li.divider
           li
-            a href="#"  Cerrar sesión
+            a href="/users/sign_out"  Cerrar sesión
           li
     .col-md-7
       button.btn.btn-smartphone-menu.visible-xs.pull-right data-target="#smartphone-menu" data-toggle="collapse" type="button"
         i.glyphicon.glyphicon-align-justify
   #smartphone-menu.collapse
-    ul.nav.visible-xs
-      li
-        a ng-href="#/main"  Home
-      li
-        a ui-sref="home.tema01"  Tema 01
-      li
-        a ui-sref="home.tema02"  Tema 02
-      li
-        a aria-controls="tema03-xs" aria-expanded="false" data-toggle="collapse" href="#tema03-xs"  Tema03
-        ul#tema03-xs.collapse
-          li
-            a href="#"  Tema03 - Parte01
-          li
-            a href="#"  Tema03 - Parte02
-          li
-            a href="#"  Tema03 - Parte03
-      li
-        a ui-sref="root.addSubject"  Añadir tema
-      li
-        a ui-sref="home.userconfig"  Cambiar contraseña
-      li
-        a href="#"  Cerrar sesión
-      li
+    subjects-list-responsive
   .row
     subjects-list
     section.col-sm-9 ui-view=""

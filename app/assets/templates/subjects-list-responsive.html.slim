@@ -1,0 +1,12 @@
+ul.nav.visible-xs
+  li ng-repeat="subject in subjects"
+    a.subject href="\#{{subject.name_parameterize}}-xs" aria-expanded="false" aria-controls="{{subject.name_parameterize}}" data-toggle="collapse" ng-click="$event.preventDefault()"
+      | {{subject.name}}
+    ul.collapse id="{{subject.name_parameterize}}-xs"
+      li ng-repeat="theme in subject.themes | orderBy:'number'"
+        a ui-sref="root.theme({theme_id: theme.id})"
+          | {{theme.number}} - {{theme.title}}
+  li
+    a ui-sref="root.addSubject" Añadir tema
+  li
+    a href="/users/sign_out"  Cerrar sesión

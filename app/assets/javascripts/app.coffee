@@ -43,6 +43,13 @@ App.directive 'subjectsList', ->
     controller: 'SubjectListController'
   }
 
+App.directive 'subjectsListResponsive', ->
+  {
+    restrict: 'E'
+    templateUrl: 'subjects-list-responsive.html'
+    controller: 'SubjectListController'
+  }
+
 App.directive 'subjectForm', ->
   {
     restrict: 'E'
