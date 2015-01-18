@@ -1,0 +1,9 @@
+form
+  .row
+    .form-group.col-md-6 ng-class="{ 'has-error': reportErrors.email }"
+      label for="" Email
+      input.form-control placeholder="Email" type="text" ng-model="user.email"
+      | {{reportErrors.email}}
+  .row
+    .col-md-6
+      button.btn.btn-custom.pull-right type="button" ng-click="addUser()" Aceptar

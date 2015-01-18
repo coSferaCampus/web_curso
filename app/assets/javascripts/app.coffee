@@ -4,9 +4,8 @@ App = angular.module "App", [
   "ngSanitize"
   "angularFileUpload"
   "subjectControllers"
-  "subjectServices"
   "themeControllers"
-  "themeServices"
+  "userControllers"
 ]
 
 App.config [
@@ -34,6 +33,15 @@ App.config [
       templateUrl: "theme.html"
       controller: "ThemeShowController"
     )
+    .state("root.addUser",
+      url: "users/new",
+      templateUrl: "add-user.html"
+    )
+    .state("root.profile",
+      url: "profile",
+      templateUrl: "profile.html"
+    )
+
 ]
 
 App.directive 'subjectsList', ->
@@ -73,9 +81,30 @@ App.directive 'themeForm', ->
 
 App.directive 'themesTable', ->
   {
-    restrict: 'E',
+    restrict: 'E'
     templateUrl: 'themes-table.html'
     controller: 'ThemeTableController'
+  }
+
+App.directive 'userForm', ->
+  {
+    restrict: 'E'
+    templateUrl: 'user-form.html'
+    controller: 'UserFormController'
+  }
+
+App.directive 'usersTable', ->
+  {
+    restrict: 'E'
+    templateUrl: 'users-table.html'
+    controller: 'UserTableController'
+  }
+
+App.directive 'passwordForm', ->
+  {
+    restrict: 'E'
+    templateUrl: 'password-form.html'
+    controller: 'UserPasswordController'
   }
 
 App.filter 'byId', ->

@@ -15,4 +15,3 @@ module ThemeTemplates
     end
   end
 end
-

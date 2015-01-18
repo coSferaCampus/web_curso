@@ -14,10 +14,13 @@
         ul.dropdown-menu role="menu"
           li
             a ui-sref="root.addSubject"  Añadir tema
+          li
+            a ui-sref="root.addUser"  Añadir usuario
           li.divider
           li
-            a href="/users/sign_out"  Cerrar sesión
+            a ui-sref="root.profile"  Cambiar contraseña
           li
+            a href="/users/sign_out"  Cerrar sesión
     .col-md-7
       button.btn.btn-smartphone-menu.visible-xs.pull-right data-target="#smartphone-menu" data-toggle="collapse" type="button"
         i.glyphicon.glyphicon-align-justify

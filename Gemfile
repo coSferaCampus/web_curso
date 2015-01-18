@@ -15,6 +15,7 @@ gem 'coffee-rails'
 gem 'sass-rails'
 gem 'kramdown'
 gem 'rouge'
+gem 'gon'
 # gem 'unicorn'
 #rails assets
 gem 'non-stupid-digest-assets'

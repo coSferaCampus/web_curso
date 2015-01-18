@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'main#index'
 
+  resources :users
+  put "/profile" => 'users#update'
+
   resources :subjects do
     resources :themes
   end

@@ -1,9 +1,10 @@
 doctype html
 html
   head
-    title Iniciar sesión
+    title Curso desarrollo web inmersivo
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application', media: 'all'
     = csrf_meta_tags
+    = include_gon
   body ng-app="App"
     div ui-view=""

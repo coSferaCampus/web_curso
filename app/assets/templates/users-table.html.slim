@@ -1,0 +1,14 @@
+.row
+  .col-md-6
+    table.table
+      thead
+        tr
+          th Email
+          th &nbsp;
+      tbody
+        tr ng-repeat="user in users"
+          td
+            | {{user.email}}
+          td
+            a ng-click="removeUser(user)" style="cursor: pointer"
+              span.glyphicon.glyphicon-remove aria-hidden="true"
