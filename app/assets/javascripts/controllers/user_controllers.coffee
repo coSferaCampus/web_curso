@@ -48,9 +48,14 @@ userControllers.controller 'UserPasswordController', [
   "$scope"
   "Profile"
   ($scope, Profile) ->
-    $scope.user = {current_password: '', password: '', password_confirmation: ''}
-    $scope.reportErrors = {}
     $scope.password_changed = gon.currentUser.password_changed
+
+    if $scope.password_changed
+      $scope.user = {current_password: '', password: '', password_confirmation: ''}
+    else
+      $scope.user = {password: '', password_confirmation: ''}
+
+    $scope.reportErrors = {}
 
     $scope.updatePassword = ->
       Profile.update(
@@ -58,6 +63,8 @@ userControllers.controller 'UserPasswordController', [
           user: $scope.user
         }
         (response) ->
+          $scope.password_changed = true
+          gon.currentUser.password_changed = true
           $scope.user = {current_password: '', password: '', password_confirmation: ''}
           $scope.reportErrors = {}
         (response) ->

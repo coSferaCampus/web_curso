@@ -58,7 +58,12 @@ class User
     if password_changed
       update_with_password(params)
     else
-      update_attributes(params)
+      if update_attributes(params)
+        set(password_changed: true)
+        true
+      else
+        false
+      end
     end
   end
 end

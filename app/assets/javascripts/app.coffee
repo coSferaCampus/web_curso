@@ -19,6 +19,8 @@ App.config [
     $stateProvider.state("root",
       url: "/"
       templateUrl: "main.html"
+      controller: ($scope) ->
+        $scope.email = gon.currentUser.email
     )
     .state("root.addSubject",
       url: "subjects/new"
