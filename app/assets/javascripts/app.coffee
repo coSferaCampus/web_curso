@@ -3,6 +3,7 @@ App = angular.module "App", [
   "templates"
   "ngSanitize"
   "angularFileUpload"
+  "mainControllers"
   "subjectControllers"
   "themeControllers"
   "userControllers"
@@ -19,8 +20,9 @@ App.config [
     $stateProvider.state("root",
       url: "/"
       templateUrl: "main.html"
-      controller: ($scope) ->
-        $scope.email = gon.currentUser.email
+      controller: 'MainMenuController'
+      #controller: ($scope) ->
+        #$scope.email = gon.currentUser.email
     )
     .state("root.addSubject",
       url: "subjects/new"

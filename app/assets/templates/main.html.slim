@@ -9,14 +9,14 @@
     .col-md-2.col-sm-3.hidden-xs
       .dropdown
         a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
-          | {{email}}
+          | {{user.email}}
           span.caret
         ul.dropdown-menu role="menu"
-          li
+          li ng-show="user.admin"
             a ui-sref="root.addSubject"  Añadir tema
-          li
+          li ng-show="user.admin"
             a ui-sref="root.addUser"  Añadir usuario
-          li.divider
+          li.divider ng-show="user.admin"
           li
             a ui-sref="root.profile"  Cambiar contraseña
           li

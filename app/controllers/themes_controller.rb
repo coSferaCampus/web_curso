@@ -1,5 +1,6 @@
 class ThemesController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource except: [:create]
 
   respond_to :json
 
@@ -14,7 +15,9 @@ class ThemesController < ApplicationController
   end
 
   def create
-    @theme = Subject.find(params[:subject_id]).themes.create(theme_create_params)
+    @theme = Subject.find(params[:subject_id]).themes.new(theme_create_params)
+    authorize! :create, @theme
+    @theme.save
     respond_with @theme, api_template: @template
   end
 

@@ -44,7 +44,7 @@ class User
 
   # Class methods
   def self.create_by_admin(params)
-    self.create(params.merge(password: Devise.friendly_token))
+    self.new(params.merge(password: Devise.friendly_token))
   end
 
   # Solve: https://github.com/plataformatec/devise/issues/2949
@@ -54,6 +54,10 @@ class User
   end
 
   # Instance methods
+  def is_admin?
+    self.admin
+  end
+
   def update_password(params)
     if password_changed
       update_with_password(params)

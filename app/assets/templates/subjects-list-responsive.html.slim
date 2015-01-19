@@ -6,9 +6,9 @@ ul.nav.visible-xs
       li ng-repeat="theme in subject.themes | orderBy:'number'"
         a ui-sref="root.theme({theme_id: theme.id})"
           | {{theme.number}} - {{theme.title}}
-  li
+  li ng-show="user.admin"
     a ui-sref="root.addSubject" Añadir tema
-  li
+  li ng-show="user.admin"
     a ui-sref="root.addUser"  Añadir usuario
   li
     a ui-sref="root.profile"  Cambiar contraseña

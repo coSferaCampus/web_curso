@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Mongoid::Errors::DocumentNotFound, with: :render_404
   rescue_from Mongoid::Errors::InvalidFind, with: :render_404
+  rescue_from CanCan::AccessDenied, with: :render_403
 
   protected
 

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource except: [:create]
 
   respond_to :json
 
@@ -15,6 +16,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create_by_admin(user_create_params)
+    authorize! :create, @user
+    @user.save
     respond_with @user, api_template: @template
   end
 

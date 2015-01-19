@@ -1,10 +1,10 @@
 class SubjectsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource except: [:create]
 
   respond_to :json
 
   def show
-    @subject = Subject.find(params[:id])
     respond_with @subject, api_template: @template
   end
 
@@ -14,18 +14,18 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    @subject = Subject.create(subject_create_params)
+    @subject = Subject.new(subject_create_params)
+    authorize! :create, @subject
+    @subject.save
     respond_with @subject, api_template: @template
   end
 
   def update
-    @subject = Subject.find(params[:id])
     @subject.update_attributes(subject_update_params)
     respond_with @subject, api_template: @template
   end
 
   def destroy
-    @subject = Subject.find(params[:id])
     @subject.destroy
     respond_with @subject, api_template: @template
   end
