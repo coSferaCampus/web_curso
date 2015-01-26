@@ -3,6 +3,7 @@ source 'https://rails-assets.org'
 
 ruby '2.1.5'
 gem 'rails', '4.2.0'
+gem 'unicorn'
 gem 'jquery-rails'
 gem 'mongoid'
 gem 'cancancan'
@@ -16,6 +17,7 @@ gem 'sass-rails'
 gem 'kramdown'
 gem 'rouge'
 gem 'gon'
+gem 'therubyracer',  platform: :ruby
 # gem 'unicorn'
 #rails assets
 gem 'non-stupid-digest-assets'
