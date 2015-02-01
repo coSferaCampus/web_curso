@@ -1,0 +1,14 @@
+.row
+  .col-md-6
+    table.table
+      thead
+        tr
+          th Nombre
+          th &nbsp;
+      tbody
+        tr ng-repeat="fileResource in fileResources"
+          td
+            | {{fileResource.name}}
+          td
+            a ng-click="removeFileResource(fileResource)" style="cursor: pointer"
+              span.glyphicon.glyphicon-remove aria-hidden="true"

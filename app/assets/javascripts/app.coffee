@@ -7,6 +7,7 @@ App = angular.module "App", [
   "subjectControllers"
   "themeControllers"
   "userControllers"
+  "fileResourceControllers"
 ]
 
 App.config [
@@ -21,8 +22,6 @@ App.config [
       url: "/"
       templateUrl: "main.html"
       controller: 'MainMenuController'
-      #controller: ($scope) ->
-        #$scope.email = gon.currentUser.email
     )
     .state("root.addSubject",
       url: "subjects/new"
@@ -44,6 +43,10 @@ App.config [
     .state("root.profile",
       url: "profile",
       templateUrl: "profile.html"
+    )
+    .state("root.addFile",
+      url: "files",
+      templateUrl: "add-file.html"
     )
 
 ]
@@ -109,6 +112,20 @@ App.directive 'passwordForm', ->
     restrict: 'E'
     templateUrl: 'password-form.html'
     controller: 'UserPasswordController'
+  }
+
+App.directive 'fileForm', ->
+  {
+    restrict: 'E'
+    templateUrl: 'file-form.html'
+    controller: 'FileResourceFormController'
+  }
+
+App.directive 'filesTable', ->
+  {
+    restrict: 'E'
+    templateUrl: 'files-table.html'
+    controller: 'FileResourceTableController'
   }
 
 App.filter 'byId', ->
