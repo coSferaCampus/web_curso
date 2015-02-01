@@ -6,9 +6,11 @@ class Ability
       can :manage, Subject
       can :manage, Theme
       can :manage, User
+      can :manage, FileResource
     else
       can :read, Subject
       can :read, Theme
+      can :read, FileResource
     end
   end
 end

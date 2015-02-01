@@ -5,7 +5,6 @@ class ThemesController < ApplicationController
   respond_to :json
 
   def show
-    @theme = Theme.find(params[:id])
     respond_with @theme, api_template: @template
   end
 
@@ -15,20 +14,17 @@ class ThemesController < ApplicationController
   end
 
   def create
-    @theme = Subject.find(params[:subject_id]).themes.new(theme_create_params)
-    authorize! :create, @theme
-    @theme.save
+    authorize! :create, Theme
+    @theme = Subject.find(params[:subject_id]).themes.create(theme_create_params)
     respond_with @theme, api_template: @template
   end
 
   def update
-    @theme = Theme.find(params[:id])
     @theme.update_attributes(theme_update_params)
     respond_with @theme, api_template: @template
   end
 
   def destroy
-    @theme = Theme.find(params[:id])
     @theme.destroy
     respond_with @theme, api_template: @template
   end

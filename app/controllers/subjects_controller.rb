@@ -14,9 +14,8 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    @subject = Subject.new(subject_create_params)
-    authorize! :create, @subject
-    @subject.save
+    authorize! :create, Subject
+    @subject = Subject.create(subject_create_params)
     respond_with @subject, api_template: @template
   end
 

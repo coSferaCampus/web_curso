@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    authorize! :create, User
     @user = User.create_by_admin(user_create_params)
-    authorize! :create, @user
     @user.save
     respond_with @user, api_template: @template
   end
