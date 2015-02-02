@@ -3,6 +3,7 @@ class FileResourcesController < ApplicationController
   load_and_authorize_resource except: [:create]
 
   respond_to :json
+  respond_to :html, only: :download
 
   def show
     respond_with @file_resource, api_template: @template
@@ -27,6 +28,12 @@ class FileResourcesController < ApplicationController
   def destroy
     @file_resource.destroy
     respond_with @file_resource, api_template: @template
+  end
+
+  def download
+    @file_resource = FileResource.find(params[:id])
+    send_file @file_resource.file.path, filename: @file_resource.name.parameterize,
+      type: @file_resource.file.content_type, disposition: :inline
   end
 
   private
