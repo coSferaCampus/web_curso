@@ -13,7 +13,7 @@ form
       tbody
         tr ng-repeat="fileResource in fileResources | filter:searchText"
           td
-            a.file-resource href="/file_resources/{{fileResource.id}}/download"
+            a.file-resource href="{{fileResource.url}}"
               | {{fileResource.name}}
           td
             | {{fileResource.created_at | date:"dd/MM/yyyy HH:mm"}}

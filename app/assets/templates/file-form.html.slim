@@ -1,17 +1,16 @@
 h2
   | Ficheros
-form
+form.b-margin
   .row
-    .form-group.col-md-2.col-xs-5 ng-class="{ 'has-error': reportErrors.name }"
+    .form-group.col-md-4.col-xs-5 ng-class="{ 'has-error': reportErrors.name }"
       label for="" Nombre
       input.form-control type="text" ng-model="fileResource.name"
       | {{reportErrors.name}}
-  div
-    .form-group ng-class="{ 'has-error': reportErrors.file }"
-      label for="exampleInputFile"  Seleccionar tema
-      input type="file" ng-file-select="" ng-model="fileResource.file"
-      | {{reportErrors.file}}
+    .form-group.col-md-4.col-xs-5 ng-class="{ 'has-error': reportErrors.url }"
+      label for="" Url
+      input.form-control type="text" ng-model="fileResource.url"
+      | {{reportErrors.url}}
   .row
     .col-md-6
-      button.btn.btn-custom.pull-right type="button" ng-click="addFileResource()"
+      button.btn.btn-custom type="button" ng-click="addFileResource()"
         | Aceptar

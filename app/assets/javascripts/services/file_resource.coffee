@@ -5,6 +5,7 @@ fileResourceServices.factory 'FileResource', ['$resource', ($resource) ->
     {
       show:    {method: 'GET', isArray: false}
       index:   {method: 'GET', isArray: false}
+      create:  {method: 'POST'}
       destroy: {method: 'DELETE'}
     }
   )

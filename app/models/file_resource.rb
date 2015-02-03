@@ -5,10 +5,9 @@ class FileResource
   acts_as_api
   include FileResourceTemplates
 
-  mount_uploader :file, FileResourceUploader
-
   field :name, type: String
+  field :url,  type: String
 
   validates :name, presence: true, uniqueness: true
-  validates :file, presence: true
+  validates :url,  presence: true
 end

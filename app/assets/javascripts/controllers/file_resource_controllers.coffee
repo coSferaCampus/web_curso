@@ -6,9 +6,8 @@ fileResourceControllers = angular.module "fileResourceControllers", [
 fileResourceControllers.controller "FileResourceFormController", [
   "$rootScope"
   "$scope"
-  "$upload"
   "FileResource"
-  ($rootScope, $scope, $upload, FileResource) ->
+  ($rootScope, $scope, FileResource) ->
     FileResource.index(
       {}
       (response) ->
@@ -21,22 +20,18 @@ fileResourceControllers.controller "FileResourceFormController", [
     $scope.reportErrors = {}
 
     $scope.addFileResource = ->
-      $upload.upload(
-        url: '/file_resources.json'
-        method: 'POST'
-        data: {name: $scope.fileResource.name}
-        file: $scope.fileResource.file
-        fileFormDataName: 'file_resource[file]'
-        formDataAppender: (fd, key, val) ->
-          fd.append "file_resource[#{key}]", val || ''
-      )
-      .success (data) ->
-        $scope.fileResource = {}
-        $scope.reportErrors = {}
+      FileResource.create(
+        {
+          file_resource: {name: $scope.fileResource.name, url: $scope.fileResource.url}
+        }
+        (response) ->
+          $scope.fileResource = {}
+          $scope.reportErrors = {}
 
-        $rootScope.fileResources.push data.file_resource
-      .error (data) ->
-        $scope.reportErrors = data.errors
+          $rootScope.fileResources.push response.file_resource
+        (response) ->
+          $scope.reportErrors = response.errors
+      )
 ]
 
 fileResourceControllers.controller "FileResourceTableController", [

@@ -4,8 +4,7 @@ RSpec.describe FileResourcesController, type: :controller do
   set_content_type 'application/json'
 
   options = [:show, :index, :create, :update, :destroy]
-  json_attributes = [:name]
-  no_check_values = [:file]
+  json_attributes = [:name, :url]
 
   before :all do
     @student = FactoryGirl.create(:user)
@@ -25,7 +24,7 @@ RSpec.describe FileResourcesController, type: :controller do
     sign_in @admin
   end
 
-  it_behaves_like "a REST controller", options, json_attributes, no_check_values
+  it_behaves_like "a REST controller", options, json_attributes
 
   context "abilities" do
     before do
