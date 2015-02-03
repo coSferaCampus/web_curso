@@ -62,15 +62,15 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = {host: 'cursocosfera.herokuapp.com'}
-  config.action_mailer.asset_host = 'http://cursocosfera.herokuapp.com'
+  config.action_mailer.default_url_options = {host: 'documentacion.campus.cosfera.es'}
+  config.action_mailer.asset_host = 'http://documentacion.campus.cosfera.es'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.smtp_settings = {
     address: 'smtp.mandrillapp.com',
     port: 587,
-    domain: 'cursocosfera.herokuapp.com',
+    domain: 'documentacion.campus.cosfera.es',
     authentication: 'plain',
     user_name: 'ja.galisteo@gmail.com',
     password: 'orKsIfiupKj4fBBedlyaAg'
