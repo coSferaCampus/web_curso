@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :themes
-  resources :file_resources do
-    get :download, on: :member
-  end
+  resources :file_resources
+  resources :global_informations
 end

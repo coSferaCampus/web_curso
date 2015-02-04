@@ -7,6 +7,7 @@ class Ability
       can :manage, Theme
       can :manage, User
       can :manage, FileResource
+      can :manage, GlobalInformation
     else
       can :read, Subject
       can :read, Theme
