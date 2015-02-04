@@ -1,0 +1,21 @@
+form
+  .row
+    .form-group-col-md-2.col-xs-5
+      input.form-control type="text" ng-model="searchText" placeholder="Busca..."
+.row
+  .col-md-8
+    table.table
+      thead
+        tr
+          th Nombre
+          th Valor
+          th &nbsp;
+      tbody
+        tr ng-repeat="globalInformation in globalInformations | filter:searchText"
+          td
+            | {{globalInformation.name}}
+          td
+            | {{globalInformation.value}}
+          td
+            a ng-click="removeGlobalInformation(globalInformation)" style="cursor: pointer"
+              span.glyphicon.glyphicon-remove aria-hidden="true"

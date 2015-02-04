@@ -8,6 +8,7 @@ App = angular.module "App", [
   "themeControllers"
   "userControllers"
   "fileResourceControllers"
+  "globalInformationControllers"
 ]
 
 App.config [
@@ -47,6 +48,10 @@ App.config [
     .state("root.addFile",
       url: "files",
       templateUrl: "add-file.html"
+    )
+    .state("root.addGlobalInformation",
+      url: "global_informations",
+      templateUrl: "add-global-information.html"
     )
 
 ]
@@ -126,6 +131,20 @@ App.directive 'filesTable', ->
     restrict: 'E'
     templateUrl: 'files-table.html'
     controller: 'FileResourceTableController'
+  }
+
+App.directive 'globalInformationForm', ->
+  {
+    restrict: 'E'
+    templateUrl: 'global-information-form.html'
+    controller: 'GlobalInformationFormController'
+  }
+
+App.directive 'globalInformationsTable', ->
+  {
+    restrict: 'E'
+    templateUrl: 'global-informations-table.html'
+    controller: 'GlobalInformationTableController'
   }
 
 App.filter 'byId', ->

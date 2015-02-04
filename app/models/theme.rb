@@ -48,6 +48,10 @@ class Theme
   end
 
   def html
-    Kramdown::Document.new(self.content).to_html
+    html = Kramdown::Document.new(self.content).to_html
+    GlobalInformation.each do |gi|
+      html.gsub!(Regexp.new("~#{gi.name}"), gi.value)
+    end
+    html
   end
 end

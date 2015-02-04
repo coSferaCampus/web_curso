@@ -16,6 +16,8 @@
             a ui-sref="root.addSubject"  Añadir tema
           li ng-show="user.admin"
             a ui-sref="root.addUser"  Añadir usuario
+          li ng-show="user.admin"
+            a ui-sref="root.addGlobalInformation"  Añadir información global
           li
             a ui-sref="root.addFile"  Ficheros
           li.divider ng-show="user.admin"

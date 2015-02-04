@@ -1,0 +1,16 @@
+h2
+  | Información global
+form.b-margin
+  .row
+    .form-group.col-md-4.col-xs-5 ng-class="{ 'has-error': reportErrors.name }"
+      label for="" Nombre
+      input.form-control type="text" ng-model="globalInformation.name"
+      | {{reportErrors.name}}
+    .form-group.col-md-4.col-xs-5 ng-class="{ 'has-error': reportErrors.value }"
+      label for="" Valor
+      input.form-control type="text" ng-model="globalInformation.value"
+      | {{reportErrors.value}}
+  .row
+    .col-md-6
+      button.btn.btn-custom type="button" ng-click="addGlobalInformation()"
+        | Aceptar
