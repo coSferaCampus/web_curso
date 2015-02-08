@@ -5,10 +5,17 @@ subjectControllers = angular.module "subjectControllers", [
 
 subjectControllers.controller "SubjectListController", [
   "$rootScope"
+  "$scope"
+  "$state"
   "Subject"
-  ($rootScope, Subject) ->
+  ($rootScope, $scope, $state, Subject) ->
     Subject.index {}, (data) ->
       $rootScope.subjects = data.subjects
+
+    $scope.editSubject = (subject, event) ->
+      event.preventDefault()
+      if $rootScope.user.admin
+        $state.go("root.addTheme", {subject_id: subject.id})
 ]
 
 subjectControllers.controller "SubjectFormController", [
