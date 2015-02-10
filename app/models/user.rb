@@ -47,12 +47,6 @@ class User
     self.new(params.merge(password: Devise.friendly_token))
   end
 
-  # Solve: https://github.com/plataformatec/devise/issues/2949
-  def self.serialize_from_session(key, salt)
-    record = Rails.env.test? ? to_adapter.get(key[0].to_s) : to_adapter.get(key[0]["$oid"])
-    record if record && record.authenticatable_salt == salt
-  end
-
   # Instance methods
   def is_admin?
     self.admin

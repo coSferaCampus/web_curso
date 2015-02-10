@@ -3,7 +3,7 @@ module UserTemplates
 
   included do
     api_accessible :base do |t|
-      t.add lambda{ |theme| theme.id.to_s }, as: :id
+      t.add :id
       t.add :email
     end
   end
