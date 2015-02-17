@@ -5,28 +5,28 @@ class SubjectsController < ApplicationController
   respond_to :json
 
   def show
-    respond_with @subject, api_template: @template
+    respond_with @subject
   end
 
   def index
     @subjects = Subject.all
-    respond_with @subjects, api_template: @template, root: 'subjects'
+    respond_with @subjects, root: 'subjects'
   end
 
   def create
     authorize! :create, Subject
     @subject = Subject.create(subject_create_params)
-    respond_with @subject, api_template: @template
+    respond_with @subject
   end
 
   def update
     @subject.update_attributes(subject_update_params)
-    respond_with @subject, api_template: @template
+    respond_with @subject
   end
 
   def destroy
     @subject.destroy
-    respond_with @subject, api_template: @template
+    respond_with @subject
   end
 
   private

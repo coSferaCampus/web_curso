@@ -2,9 +2,6 @@ class Theme
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  acts_as_api
-  include ThemeTemplates
-
   TITLE_REGEXP = /## (.+)$/
   SUBTITLE_REGEXP = /### (.+)$/
 
