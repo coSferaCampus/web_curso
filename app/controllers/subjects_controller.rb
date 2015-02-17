@@ -5,18 +5,18 @@ class SubjectsController < ApplicationController
   respond_to :json
 
   def show
-    respond_with @subject
+    respond_with @subject, respond_parameters
   end
 
   def index
     @subjects = Subject.all
-    respond_with @subjects, root: 'subjects'
+    respond_with @subjects, respond_parameters
   end
 
   def create
     authorize! :create, Subject
     @subject = Subject.create(subject_create_params)
-    respond_with @subject
+    respond_with @subject, respond_parameters
   end
 
   def update

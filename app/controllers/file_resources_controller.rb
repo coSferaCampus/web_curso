@@ -5,28 +5,28 @@ class FileResourcesController < ApplicationController
   respond_to :json
 
   def show
-    respond_with @file_resource, api_template: @template
+    respond_with @file_resource, respond_parameters
   end
 
   def index
     @file_resources = FileResource.desc(:created_at)
-    respond_with @file_resources, api_template: @template, root: 'file_resources'
+    respond_with @file_resources, respond_parameters
   end
 
   def create
     authorize! :create, FileResource
     @file_resource = FileResource.create(file_params)
-    respond_with @file_resource, api_template: @template
+    respond_with @file_resource, respond_parameters
   end
 
   def update
     @file_resource.update_attributes(file_params)
-    respond_with @file_resource, api_template: @template
+    respond_with @file_resource
   end
 
   def destroy
     @file_resource.destroy
-    respond_with @file_resource, api_template: @template
+    respond_with @file_resource
   end
 
   private

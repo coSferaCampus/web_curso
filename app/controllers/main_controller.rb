@@ -1,6 +1,7 @@
 class MainController < ApplicationController
   before_action :authenticate_user!
   before_action :share_with_gon
+  skip_before_action :determine_template
 
   def index
     render text: '', layout: 'application'

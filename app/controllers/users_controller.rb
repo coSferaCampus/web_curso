@@ -5,20 +5,19 @@ class UsersController < ApplicationController
   respond_to :json
 
   def show
-    @user = User.find(params[:id])
-    respond_with @user, api_template: @template
+    respond_with @user, respond_parameters
   end
 
   def index
     @users = User.all
-    respond_with @users, api_template: @template, root: 'users'
+    respond_with @users, respond_parameters
   end
 
   def create
     authorize! :create, User
     @user = User.create_by_admin(user_create_params)
     @user.save
-    respond_with @user, api_template: @template
+    respond_with @user, respond_parameters
   end
 
   def update
@@ -26,13 +25,12 @@ class UsersController < ApplicationController
     if @user.update_password(user_update_params)
       sign_in @user, bypass: true
     end
-    respond_with @user, api_template: @template
+    respond_with @user
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
-    respond_with @user, api_template: @template
+    respond_with @user
   end
 
   private

@@ -33,6 +33,9 @@ gem 'rails_12factor', group: :production
 group :development do
   gem 'mailcatcher'
   gem 'html2slim'
+  gem 'pry-rails'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :test do

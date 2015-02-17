@@ -5,28 +5,28 @@ class GlobalInformationsController < ApplicationController
   respond_to :json
 
   def show
-    respond_with @global_information, api_template: @template
+    respond_with @global_information, respond_parameters
   end
 
   def index
     @global_informations = GlobalInformation.desc(:created_at)
-    respond_with @global_informations, api_template: @template, root: 'global_informations'
+    respond_with @global_informations, respond_parameters
   end
 
   def create
     authorize! :create, GlobalInformation
     @global_information = GlobalInformation.create(file_params)
-    respond_with @global_information, api_template: @template
+    respond_with @global_information, respond_parameters
   end
 
   def update
     @global_information.update_attributes(file_params)
-    respond_with @global_information, api_template: @template
+    respond_with @global_information
   end
 
   def destroy
     @global_information.destroy
-    respond_with @global_information, api_template: @template
+    respond_with @global_information
   end
 
   private
