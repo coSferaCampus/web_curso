@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
   layout 'devise'
+  skip_before_action :determine_template
 # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
